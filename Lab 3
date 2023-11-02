@@ -1,0 +1,277 @@
+//  1 task
+// void main() {
+//   String name = "Javokhir";
+//   int age = 20;
+//   String location = "Uzbekistan";
+//   String occupation = "Student";
+
+//   print("Name: $name");
+//   print("Age: $age");
+//   print("Location: $location");
+//   print("Occupation: $occupation");
+// }
+//   2 Task
+// void main() {
+//   int number = 3;
+
+//   if (number % 2 == 0) {
+//     print("$number is even.");
+//   } else {
+//     print("$number is odd.");
+//   }
+// }
+//   3 Task
+// void main() {
+//   print("Odd numbers");
+//   for (int i = 1; i <= 100; i += 2) {
+//     print(i);
+//   }
+
+//   print("\nEven numbers");
+//   for (int i = 2; i <= 100; i += 2) {
+//     print(i);
+//   }
+// }
+//   4 Task
+// void main() {
+//   List<int> a = [1, 1, 2, 3, 5, 8, 13, 21, 34, 55, 89];
+//   List<int> squaredList = [];
+
+//   for (int number in a) {
+//     squaredList.add(number * number);
+//   }
+
+//   print("Squared List: $squaredList");
+// }
+//   5 Task
+// import 'dart:math';
+
+// void main() {
+//   int number = 6;
+//   List<int> divisors = [];
+
+//   for (int i = 3; i <= sqrt(number); i++) {
+//     if (number % i == 0) {
+//       divisors.add(i);
+//       if (number ~/ i != i) {
+//         divisors.add(number ~/ i);
+//       }
+//     }
+//   }
+
+//   divisors.sort();
+//   print("Divisors of $number in increasing order: $divisors");
+// }
+//  6 Task
+// void main() {
+//   List<int> a = [1, 1, 2, 3, 5, 8, 13, 21, 34, 55, 89];
+//   List<int> b = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 89];
+  
+//   List<int> matchingElements = [];
+
+//   for (int element in a) {
+//     if (b.contains(element)) {
+//       matchingElements.add(element);
+//     }
+//   }
+
+//   print("Matching Elements: $matchingElements");
+// }
+//  7 Task
+// import 'dart:math';
+
+// void main() {
+//   int number = 67543;
+//   bool isPrime = true;
+
+//   if (number <= 1) {
+//     isPrime = false;
+//   } else {
+//     for (int i = 2; i <= sqrt(number); i++) {
+//       if (number % i == 0) {
+//         isPrime = false;
+//         break;
+//       }
+//     }
+//   }
+
+//   if (isPrime) {
+//     print("$number is a prime number.");
+//   } else {
+//     print("$number is not a prime number.");
+//   }
+// }
+//  8 Task
+// List<int> getDistinctElements(List<int> numbers) {
+//   Set<int> distinctSet = {};
+//   for (int number in numbers) {
+//     distinctSet.add(number);
+//   }
+//   return distinctSet.toList();
+// }
+
+// void main() {
+//   List<int> numbers = [34, 1, 121, 8];
+//   List<int> distinctNumbers = getDistinctElements(numbers);
+
+//   print(distinctNumbers);
+// }
+//  9 Task
+// List<int> fibonacciWithLoop(int limit) {
+//   List<int> fibonacciNumbers = [];
+//   if (limit == 0) {
+//     return fibonacciNumbers;
+//   }
+
+//   int a = 0;
+//   int b = 1;
+//   fibonacciNumbers.add(a);
+
+//   while (b <= limit) {
+//     fibonacciNumbers.add(b);
+//     int temp = a + b;
+//     a = b;
+//     b = temp;
+//   }
+
+//   return fibonacciNumbers;
+// }
+// List<int> fibonacciWithRecursion(int limit) {
+//   List<int> fibonacciNumbers = [];
+
+//   // Helper function for recursion
+//   void generateFibonacci(int a, int b) {
+//     if (a > limit) {
+//       return;
+//     }
+
+//     fibonacciNumbers.add(a);
+//     generateFibonacci(b, a + b);
+//   }
+
+//   generateFibonacci(0, 1);
+
+//   return fibonacciNumbers;
+// }
+
+// void main() {
+//   int limit = 100;
+
+//   List<int> fibonacciWithLoopResult = fibonacciWithLoop(limit);
+//   print('Fibonacci numbers with loop: $fibonacciWithLoopResult');
+
+//   List<int> fibonacciWithRecursionResult = fibonacciWithRecursion(limit);
+//   print('Fibonacci numbers with recursion: $fibonacciWithRecursionResult');
+// }
+//  10 Task
+// import 'dart:collection';
+// List<int> fibonacciWithMemoization(int limit) {
+//   Map<int, int> cache = HashMap();
+//   int fibonacci(int n) {
+//     if (n <= 1) {
+//       return n;
+//     }
+//     if (cache.containsKey(n)) {
+//       return cache[n];
+//     }
+//     int result = fibonacci(n - 1) + fibonacci(n - 2);
+//     cache[n] = result;
+
+//     return result;
+//   }
+//   List<int> fibonacciNumbers = [];
+//   for (int i = 0; fibonacci(i) <= limit; i++) {
+//     fibonacciNumbers.add(fibonacci(i));
+//   }
+
+//   return fibonacciNumbers;
+// }
+
+// void main() {
+//   int limit = 100;
+
+//   List<int> fibonacciWithMemoizationResult = fibonacciWithMemoization(limit);
+//   print('Fibonacci numbers with memoization: $fibonacciWithMemoizationResult');
+// }
+//  11 Task
+// String checkPasswordStrength(String password) {
+//   if (password.length >= 8) {
+//     if (password.contains(RegExp(r'[A-Z]')) &&
+//         password.contains(RegExp(r'[a-z]'))) {
+//       if (password.contains(RegExp(r'[0-9]'))) {
+//         if (password.contains(RegExp(r'[!@#$%^&*(),.?":{}|<>]'))) {
+//           return 'strong';
+//         } else {
+//           return 'normal';
+//         }
+//       } else {
+//         return 'normal';
+//       }
+//     } else {
+//       return 'weak';
+//     }
+//   } else {
+//     return 'weak';
+//   }
+// }
+
+// void main() {
+//   String password = 'xdgfhjytredxfcvbnlkjhg!';
+
+//   String passwordStrength = checkPasswordStrength(password);
+//   print('Password strength: $passwordStrength');
+// }
+//  12 Task
+// void generateTable(int rows, int cols) {
+//   for (int i = 1; i <= rows; i++) {
+//     for (int j = 1; j <= cols; j++) {
+//       int cellValue = i * j;
+//       print('$cellValue\t');
+//     }
+//     print('\n');
+//   }
+// }
+
+// void main() {
+//   int rows = 1;
+//   int cols = 3;
+
+//   generateTable(rows, cols);
+// }
+//  CH 2
+// class Car {
+//   String make;
+//   String model;
+//   int year;
+
+//   Car(this.make, this.model, this.year);
+
+//   void describe() {
+//     print('Car: $make $model, Year: $year');
+//   }
+// }
+
+// void main() {
+//   Car myCar = Car('Cherry', 'Tiggo 8 promax', 2022);
+//   myCar.describe();
+// }
+// class Book {
+//   String title;
+//   String author;
+//   int pages;
+
+//   Book(this.title, this.author, this.pages);
+
+//   void describe() {
+//     print('Book: $title by $author, Pages: $pages');
+//   }
+// }
+
+// void main() {
+//   Book myBook = Book('Irfon', 'Ahmad.M.T', 180);
+//   myBook.describe();
+// }
+
+
+
+
